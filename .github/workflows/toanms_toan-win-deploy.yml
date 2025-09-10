@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: read #This is required for actions/checkout
 
@@ -34,8 +34,8 @@ jobs:
           path: '${{ github.workspace }}/target/*.war'
 
   deploy:
-    runs-on: ubuntu-latest
-    needs: build 
+    runs-on: windows-latest
+    needs: build
     
     steps:
       - name: Download artifact from build job
@@ -50,4 +50,4 @@ jobs:
           app-name: 'toan-win-deploy'
           slot-name: 'Production'
           package: '*.war'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_34CDE67F986F41598B8E895F1D1E5BB3 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2186636C14B34BE0813CD89032953C50 }}
